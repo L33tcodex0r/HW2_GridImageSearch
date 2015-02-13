@@ -1,24 +1,18 @@
 package com.udroidw.gridimagesearch.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.GridView;
 
-import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.JsonHttpResponseHandler;
 import com.udroidw.gridimagesearch.R;
 import com.udroidw.gridimagesearch.adapters.ImageResultsAdapter;
 import com.udroidw.gridimagesearch.models.ImageResult;
-
-import org.apache.http.Header;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -47,6 +41,20 @@ public class SearchActivity extends ActionBarActivity {
     public void setupViews() {
         etQuery = (EditText) findViewById(R.id.etQuery);
         gvResults = (GridView) findViewById(R.id.gvResults);
+        gvResults.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //Launch the image display activity
+                //Create an intent
+                Intent i = new Intent(SearchActivity.this, ImageDisplayActivity.class);
+                //Get the image result to display
+                ImageResult result = imageResults.get(position);
+                //Pass image result into the intent
+                i.putExtra("result", result);
+                //Launch the new activity
+                startActivity(i);
+            }
+        });
 
     }
 
@@ -60,7 +68,7 @@ public class SearchActivity extends ActionBarActivity {
 
     //Fired whenever the button is pressed (android:onclick property)
     public void onImageSearch(View v) {
-        String query = etQuery.getText().toString();
+   /*     String query = etQuery.getText().toString();
         AsyncHttpClient client = new AsyncHttpClient();
         // https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=android&rsz=8
         String searchUrl = "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=" + query + "&rsz=8";
@@ -77,7 +85,9 @@ public class SearchActivity extends ActionBarActivity {
                     Log.e("DEBUG", e.toString());
                 }
             }
-        });
+        });*/
+        Intent i = new Intent(this, SettingsActivity.class);
+        startActivity(i);
 
 
     }
