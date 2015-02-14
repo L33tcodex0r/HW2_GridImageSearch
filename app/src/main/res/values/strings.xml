@@ -9,10 +9,12 @@
     <string name="image_title_label">Image Title</string>
     <string name="title_activity_image_display">ImageDisplayActivity</string>
     <string name="title_activity_settings">SettingsActivity</string>
-    <string name="seach_title">Advanced Search Options</string>
+    <string name="search_title">Advanced Search Options</string>
     <string name="image_size">Image Size</string>
     <string name="color_filter">Color Filter</string>
     <string name="image_type">Image Type</string>
     <string name="site_filter">Site Filter</string>
+    <string name="site_filter_hint">http://www ...</string>
+    <string name="save_button">Save</string>
 
 </resources>

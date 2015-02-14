@@ -6,42 +6,42 @@
         jumboMode="false"
         revision="21.1.2"
         sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
-        <dex dex="C:\Users\L33t\AndroidStudioProjects\GridImageSearch\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-80cc5eb0c41746e4fbb315aad6b444e26923863d.jar" />
+        <dex dex="C:\Users\atu\AndroidStudioProjects\HW2_GridImageSearch\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-80cc5eb0c41746e4fbb315aad6b444e26923863d.jar" />
     </item>
     <item
-        jar="C:\Users\L33t\AndroidStudioProjects\GridImageSearch\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
-        <dex dex="C:\Users\L33t\AndroidStudioProjects\GridImageSearch\app\build\intermediates\pre-dexed\debug\classes-93159af086bdd482f14c1550c822caa39d67d223.jar" />
-    </item>
-    <item
-        jar="C:\Users\L33t\AndroidStudioProjects\GridImageSearch\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
-        <dex dex="C:\Users\L33t\AndroidStudioProjects\GridImageSearch\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-9146ec47fc99506f75a47ea57071e5596781c124.jar" />
-    </item>
-    <item
-        jar="C:\Users\L33t\.gradle\caches\modules-2\files-2.1\com.loopj.android\android-async-http\1.4.5\77bf7cacf9cefe19dc105e5425d2eb1bb5285881\android-async-http-1.4.5.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="77bf7cacf9cefe19dc105e5425d2eb1bb5285881">
-        <dex dex="C:\Users\L33t\AndroidStudioProjects\GridImageSearch\app\build\intermediates\pre-dexed\debug\android-async-http-1.4.5-4ed7ac00e6f4f1eb61dbbf7216e965409b1e024d.jar" />
-    </item>
-    <item
-        jar="C:\Users\L33t\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.4.0\f36d2d4e3a36b3259aaf9d004d29b4cdc6c1bfb2\picasso-2.4.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="f36d2d4e3a36b3259aaf9d004d29b4cdc6c1bfb2">
-        <dex dex="C:\Users\L33t\AndroidStudioProjects\GridImageSearch\app\build\intermediates\pre-dexed\debug\picasso-2.4.0-57ffe32c20d4970c5bc426a32848fead1f1e54f5.jar" />
-    </item>
-    <item
-        jar="C:\Users\L33t\AndroidStudioProjects\GridImageSearch\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
+        jar="C:\Users\atu\AndroidStudioProjects\HW2_GridImageSearch\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="C:\Users\L33t\AndroidStudioProjects\GridImageSearch\app\build\intermediates\pre-dexed\debug\classes-da998115daad9c7d1f20f669d0a92ecebbf63c51.jar" />
+        <dex dex="C:\Users\atu\AndroidStudioProjects\HW2_GridImageSearch\app\build\intermediates\pre-dexed\debug\classes-342b4e62204fbf6ca96d7370cb461f0f2c76aa65.jar" />
+    </item>
+    <item
+        jar="C:\Users\atu\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.4.0\f36d2d4e3a36b3259aaf9d004d29b4cdc6c1bfb2\picasso-2.4.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="f36d2d4e3a36b3259aaf9d004d29b4cdc6c1bfb2">
+        <dex dex="C:\Users\atu\AndroidStudioProjects\HW2_GridImageSearch\app\build\intermediates\pre-dexed\debug\picasso-2.4.0-99742337a7c1ed67f973d22c50b233de5b582152.jar" />
+    </item>
+    <item
+        jar="C:\Users\atu\AndroidStudioProjects\HW2_GridImageSearch\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="C:\Users\atu\AndroidStudioProjects\HW2_GridImageSearch\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-a237fd2cf25bf80fb1397914268bed666ba6a491.jar" />
+    </item>
+    <item
+        jar="C:\Users\atu\.gradle\caches\modules-2\files-2.1\com.loopj.android\android-async-http\1.4.5\77bf7cacf9cefe19dc105e5425d2eb1bb5285881\android-async-http-1.4.5.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="77bf7cacf9cefe19dc105e5425d2eb1bb5285881">
+        <dex dex="C:\Users\atu\AndroidStudioProjects\HW2_GridImageSearch\app\build\intermediates\pre-dexed\debug\android-async-http-1.4.5-9b7cea4aa55fa4690074009d831206699459399e.jar" />
+    </item>
+    <item
+        jar="C:\Users\atu\AndroidStudioProjects\HW2_GridImageSearch\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="C:\Users\atu\AndroidStudioProjects\HW2_GridImageSearch\app\build\intermediates\pre-dexed\debug\classes-b65ad5826adc6c0f45553d661d71ae3d1eb55a17.jar" />
     </item>
 
 </items>

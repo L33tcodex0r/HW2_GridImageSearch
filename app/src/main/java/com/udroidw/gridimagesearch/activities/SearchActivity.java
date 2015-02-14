@@ -3,6 +3,8 @@ package com.udroidw.gridimagesearch.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -10,9 +12,16 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.GridView;
 
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
 import com.udroidw.gridimagesearch.R;
 import com.udroidw.gridimagesearch.adapters.ImageResultsAdapter;
 import com.udroidw.gridimagesearch.models.ImageResult;
+
+import org.apache.http.Header;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -22,11 +31,19 @@ public class SearchActivity extends ActionBarActivity {
     private GridView gvResults;
     private ArrayList<ImageResult> imageResults;
     private ImageResultsAdapter aImageResults;
+    private String color = "";
+    private String imageType = "";
+    private String imageSize = "";
+    private String site = "";
+    static final int SETTINGS_REQUEST = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("Google Image Search");
+        setSupportActionBar(toolbar);
         setupViews();
 
         //Creates the data source
@@ -68,10 +85,15 @@ public class SearchActivity extends ActionBarActivity {
 
     //Fired whenever the button is pressed (android:onclick property)
     public void onImageSearch(View v) {
-   /*     String query = etQuery.getText().toString();
+        String query = etQuery.getText().toString();
         AsyncHttpClient client = new AsyncHttpClient();
+        //as_sitesearch
+        //imgcolor
+        //imgsz
+        //imgtype
+
         // https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=android&rsz=8
-        String searchUrl = "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=" + query + "&rsz=8";
+        String searchUrl = "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=" + query + "&imgsz=" + imageSize + "&imgcolor=" + color + "&imgsz=" + imageSize + "&as_sitesearch=" + site + "&rsz=8";
         client.get(searchUrl, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
@@ -85,9 +107,7 @@ public class SearchActivity extends ActionBarActivity {
                     Log.e("DEBUG", e.toString());
                 }
             }
-        });*/
-        Intent i = new Intent(this, SettingsActivity.class);
-        startActivity(i);
+        });
 
 
     }
@@ -100,11 +120,25 @@ public class SearchActivity extends ActionBarActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent i = new Intent(this, SettingsActivity.class);
+            startActivityForResult(i, SETTINGS_REQUEST);
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == SETTINGS_REQUEST) {
+            if (resultCode == RESULT_OK) {
+                color = data.getStringExtra("color");
+                imageType = data.getStringExtra("imageType");
+                imageType = data.getStringExtra("imageType");
+                imageSize = data.getStringExtra("imageSize");
+                site = data.getStringExtra("site");
+            }
+        }
     }
 }

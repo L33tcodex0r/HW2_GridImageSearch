@@ -1,9 +1,12 @@
 package com.udroidw.gridimagesearch.activities;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -66,5 +69,31 @@ public class SettingsActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onSave(View v) {
+        Intent result = new Intent();
+
+        String imageSize = spinnerImageSize.getSelectedItem().toString();
+        String color = spinnerColorFilter.getSelectedItem().toString();
+        String imageType = spinnerImageType.getSelectedItem().toString();
+        String site = etSiteFilter.getText().toString();
+
+        if (imageSize.equals("any")) {
+            imageSize = "";
+        }
+        if (color.equals("any")) {
+            color = "";
+        }
+        if (imageType.equals("any")) {
+            imageType = "";
+        }
+
+        result.putExtra("imageSize", imageSize);
+        result.putExtra("color", color);
+        result.putExtra("imageType", imageType);
+        result.putExtra("site", site.trim());
+        setResult(RESULT_OK, result);
+        finish();
     }
 }
