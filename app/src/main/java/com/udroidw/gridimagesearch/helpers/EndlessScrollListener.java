@@ -25,10 +25,11 @@ public abstract class EndlessScrollListener implements AbsListView.OnScrollListe
 
     @Override
     public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-        Log.d("DEBUG", firstVisibleItem + " " + visibleItemCount + " " + totalItemCount+" "+previousTotalItemCount+" "+loading);
+        Log.d("DEBUG", firstVisibleItem + " " + visibleItemCount + " " + totalItemCount + " " + previousTotalItemCount + " " + loading);
         if (totalItemCount < previousTotalItemCount) {
             this.currentPage = this.startingPageIndex;
             this.previousTotalItemCount = totalItemCount;
+            this.loading = false;
             if (totalItemCount == 0) {
                 this.loading = true;
             }

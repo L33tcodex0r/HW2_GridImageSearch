@@ -115,6 +115,7 @@ public class SearchActivity extends ActionBarActivity {
                 try {
                     imageResultsJson = response.getJSONObject("responseData").getJSONArray("results");
                     imageResults.clear(); //clear the existing images from the array (in cases where it's a new search)
+                    aImageResults.clear();
                     aImageResults.addAll(ImageResult.fromJSONArray(imageResultsJson)); //You actually trigger the notify when you do this.
                 } catch (JSONException e) {
                     Log.e("DEBUG", e.toString());
