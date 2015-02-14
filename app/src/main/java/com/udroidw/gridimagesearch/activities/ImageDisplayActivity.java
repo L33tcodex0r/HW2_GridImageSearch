@@ -16,8 +16,6 @@ public class ImageDisplayActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_display);
-        //Remove the actionbar on the image display activity
-        getSupportActionBar().hide();
         //Pull out the url from the intent
         ImageResult result = (ImageResult) getIntent().getSerializableExtra("result");
         //Find the image view

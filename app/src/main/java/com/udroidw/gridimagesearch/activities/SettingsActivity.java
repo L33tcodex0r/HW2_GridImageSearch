@@ -1,7 +1,7 @@
 package com.udroidw.gridimagesearch.activities;
 
-import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -24,10 +24,10 @@ public class SettingsActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         getViews();
-        populateSpinners();
+        populateInputs();
     }
 
-    public void populateSpinners() {
+    public void populateInputs() {
         ArrayAdapter<CharSequence> imageSizeAdapter = ArrayAdapter.createFromResource(this, R.array.spinnerImageSize, android.R.layout.simple_spinner_item);
         ArrayAdapter<CharSequence> colorFilterAdapter = ArrayAdapter.createFromResource(this, R.array.spinnerColorFilter, android.R.layout.simple_spinner_item);
         ArrayAdapter<CharSequence> imageTypeAdapter = ArrayAdapter.createFromResource(this, R.array.spinnerImageType, android.R.layout.simple_spinner_item);
@@ -39,6 +39,29 @@ public class SettingsActivity extends ActionBarActivity {
         spinnerImageSize.setAdapter(imageSizeAdapter);
         spinnerColorFilter.setAdapter(colorFilterAdapter);
         spinnerImageType.setAdapter(imageTypeAdapter);
+
+        //Load previous settings
+        SharedPreferences settings = getSharedPreferences("settings", 0);
+        String color = settings.getString("color", "");
+        String imageType = settings.getString("imageType", "");
+        String imageSize = settings.getString("imageSize", "");
+        String site = settings.getString("site", "");
+
+        setSpinnerValue(spinnerImageSize, imageSize);
+        setSpinnerValue(spinnerColorFilter, color);
+        setSpinnerValue(spinnerImageType, imageType);
+        etSiteFilter.setText(site);
+    }
+
+    public void setSpinnerValue(Spinner spinner, String value) {
+        int index = 0;
+        for (int i = 0; i < spinner.getCount(); i++) {
+            if (spinner.getItemAtPosition(i).equals(value)) {
+                index = i;
+                break;
+            }
+        }
+        spinner.setSelection(index);
     }
 
     public void getViews() {
@@ -89,11 +112,14 @@ public class SettingsActivity extends ActionBarActivity {
             imageType = "";
         }
 
-        result.putExtra("imageSize", imageSize);
-        result.putExtra("color", color);
-        result.putExtra("imageType", imageType);
-        result.putExtra("site", site.trim());
-        setResult(RESULT_OK, result);
+        SharedPreferences settings = getSharedPreferences("settings", 0);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putString("imageSize", imageSize);
+        editor.putString("color", color);
+        editor.putString("imageType", imageType);
+        editor.putString("site", site.trim());
+        editor.commit();
+        //setResult(RESULT_OK, result);
         finish();
     }
 }
