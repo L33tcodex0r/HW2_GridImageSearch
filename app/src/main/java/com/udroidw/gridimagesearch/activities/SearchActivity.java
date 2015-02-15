@@ -40,15 +40,16 @@ public class SearchActivity extends ActionBarActivity {
     private String site;
     private String query;
 
-    static final int SETTINGS_REQUEST = 1;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+
+        //Set up the toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Google Image Search");
         setSupportActionBar(toolbar);
+
         setupViews();
 
         //Creates the data source
@@ -66,7 +67,6 @@ public class SearchActivity extends ActionBarActivity {
         gvResults.setOnScrollListener(new EndlessScrollListener() {
             @Override
             public void onLoadMore(int page, int totalItemsCount) {
-                Log.d("DEBUG", "Load more running");
                 addImages(totalItemsCount);
             }
         });
@@ -110,7 +110,6 @@ public class SearchActivity extends ActionBarActivity {
         client.get(searchUrl, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                Log.d("DEBUG", response.toString());
                 JSONArray imageResultsJson;
                 try {
                     imageResultsJson = response.getJSONObject("responseData").getJSONArray("results");
@@ -118,7 +117,7 @@ public class SearchActivity extends ActionBarActivity {
                     aImageResults.clear();
                     aImageResults.addAll(ImageResult.fromJSONArray(imageResultsJson)); //You actually trigger the notify when you do this.
                 } catch (JSONException e) {
-                    Log.e("DEBUG", e.toString());
+                    Log.e("ERROR", e.toString());
                 }
             }
         });
@@ -138,7 +137,7 @@ public class SearchActivity extends ActionBarActivity {
                     imageResultsJson = response.getJSONObject("responseData").getJSONArray("results");
                     aImageResults.addAll(ImageResult.fromJSONArray(imageResultsJson)); //You actually trigger the notify when you do this.
                 } catch (JSONException e) {
-                    Log.e("DEBUG", e.toString());
+                    Log.e("ERROR", e.toString());
                 }
             }
         });
@@ -155,7 +154,7 @@ public class SearchActivity extends ActionBarActivity {
 
         if (id == R.id.action_settings) {
             Intent i = new Intent(this, SettingsActivity.class);
-            startActivityForResult(i, SETTINGS_REQUEST);
+            startActivity(i);
             return true;
         }
 

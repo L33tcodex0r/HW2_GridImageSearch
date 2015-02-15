@@ -25,18 +25,28 @@ public class ImageResultsAdapter extends ArrayAdapter<ImageResult> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ImageResult imageInfo = getItem(position);
+        ViewHolder viewHolder;
         if (convertView == null) {
+            viewHolder = new ViewHolder();
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_image_result, parent, false);
+            viewHolder.ivImage = (ImageView) convertView.findViewById(R.id.ivImage);
+            viewHolder.tvTitle = (TextView) convertView.findViewById(R.id.tvTitle);
+            convertView.setTag(viewHolder);
+        } else {
+            viewHolder = (ViewHolder) convertView.getTag();
         }
-        ImageView ivImage = (ImageView) convertView.findViewById(R.id.ivImage);
-        TextView tvTitle = (TextView) convertView.findViewById(R.id.tvTitle);
-        //Clear out image from last time
-        ivImage.setImageResource(0);
+        viewHolder.ivImage.setImageResource(0);
         //Populate title and remote download image url
-        tvTitle.setText(Html.fromHtml(imageInfo.title));
+        viewHolder.tvTitle.setText(Html.fromHtml(imageInfo.title));
         //Remotely download the image data in the background (with Picasso)
-        Picasso.with(getContext()).load(imageInfo.thumbUrl).into(ivImage);
+        Picasso.with(getContext()).load(imageInfo.thumbUrl).into(viewHolder.ivImage);
         //Return the completed view to be displayed
         return convertView;
     }
+
+    public static class ViewHolder {
+        ImageView ivImage;
+        TextView tvTitle;
+    }
+
 }

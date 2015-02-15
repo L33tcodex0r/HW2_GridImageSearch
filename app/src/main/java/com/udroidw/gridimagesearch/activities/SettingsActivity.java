@@ -53,6 +53,7 @@ public class SettingsActivity extends ActionBarActivity {
         etSiteFilter.setText(site);
     }
 
+    //Sets the spinner value by iterating through the spinner items until one matches the string.
     public void setSpinnerValue(Spinner spinner, String value) {
         int index = 0;
         for (int i = 0; i < spinner.getCount(); i++) {
@@ -102,6 +103,7 @@ public class SettingsActivity extends ActionBarActivity {
         String imageType = spinnerImageType.getSelectedItem().toString();
         String site = etSiteFilter.getText().toString();
 
+        //If the value is "any" we're not going to query for it, so we just set it to an empty string.
         if (imageSize.equals("any")) {
             imageSize = "";
         }
@@ -112,6 +114,7 @@ public class SettingsActivity extends ActionBarActivity {
             imageType = "";
         }
 
+        //Save the settings and finish the activity.
         SharedPreferences settings = getSharedPreferences("settings", 0);
         SharedPreferences.Editor editor = settings.edit();
         editor.putString("imageSize", imageSize);
@@ -119,7 +122,6 @@ public class SettingsActivity extends ActionBarActivity {
         editor.putString("imageType", imageType);
         editor.putString("site", site.trim());
         editor.commit();
-        //setResult(RESULT_OK, result);
         finish();
     }
 }
